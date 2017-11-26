@@ -354,6 +354,9 @@
         // and shows only the ones within it. This is so that the
         // user can specify an exact area of search.
         function searchWithinPolygon() {
+            var area = google.maps.geometry.spherical.computeArea(polygon.getPath());
+            console.log(area);
+            
             for (var i = 0; i < markers.length; i++) {
                 if (google.maps.geometry.poly.containsLocation(markers[i].position, polygon)) {
                     markers[i].setMap(map);
